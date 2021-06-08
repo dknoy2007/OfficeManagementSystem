@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  officeManagementdb:
+    image: mongo
+  officemanagementservice:
+    image: ${DOCKER_REGISTRY-}officemanagementservice
+    build:
+      context: .
+      dockerfile: OfficeManagementService/Dockerfile
+volumes:
+  mongo_data:

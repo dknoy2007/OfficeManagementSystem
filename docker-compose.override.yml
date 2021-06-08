@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  officeManagementdb:
+    container_name: officeManagementdb
+    restart: always
+    ports:
+        - "27017:27017"
+    volumes:
+        - mongo_data:/data/db
+  officemanagementservice:
+    container_name: officemanagementservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "EmployeesSettings:ConnectionString=mongodb://catalogdb:27017"
+      - "TimeSheetsSettings:ConnectionString=mongodb://catalogdb:27017"
+    depends_on:
+      - officeManagementdb
+    ports:
+      - "5000:80"
