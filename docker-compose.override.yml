@@ -12,8 +12,8 @@ services:
     container_name: officemanagementservice
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "EmployeesSettings:ConnectionString=mongodb://catalogdb:27017"
-      - "TimeSheetsSettings:ConnectionString=mongodb://catalogdb:27017"
+      - "EmployeesSettings:ConnectionString=mongodb://officeManagementdb:27017"
+      - "TimeSheetsSettings:ConnectionString=mongodb://officeManagementdb:27017"
     depends_on:
       - officeManagementdb
     ports:
